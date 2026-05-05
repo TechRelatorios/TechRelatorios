@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TechReport</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Segoe UI", Arial, sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at top left, #22d3ee 0, transparent 30%),
+        radial-gradient(circle at top right, #7c3aed 0, transparent 30%),
+        linear-gradient(135deg, #020617, #0f172a);
+      padding: 20px;
+      color: #1f2937;
+    }
+
+    header {
+      background: linear-gradient(135deg, #1d4ed8, #7c3aed);
+      color: white;
+      padding: 30px;
+      border-radius: 20px;
+      text-align: center;
+      margin-bottom: 25px;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+    }
+
+    header h1 {
+      font-size: 36px;
+      margin-bottom: 8px;
+    }
+
+    header p {
+      color: #e0e7ff;
+    }
+
+    main {
+      max-width: 900px;
+      margin: auto;
+      background: white;
+      padding: 30px;
+      border-radius: 25px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+    }
+
+    h2 {
+      margin-bottom: 20px;
+      color: #0f172a;
+    }
+
+    label {
+      display: block;
+      margin-top: 12px;
+      font-weight: bold;
+      color: #1e293b;
+    }
+
+    input, textarea, select {
+      width: 100%;
+      padding: 12px;
+      margin-top: 6px;
+      border-radius: 12px;
+      border: 1px solid #cbd5e1;
+      background: #f8fafc;
+      transition: 0.2s;
+    }
+
+    input:focus, textarea:focus, select:focus {
+      border-color: #2563eb;
+      background: white;
+      box-shadow: 0 0 0 3px rgba(37,99,235,0.2);
+    }
+
+    textarea {
+      min-height: 90px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+    }
+
+    .foto-box {
+      background: linear-gradient(135deg, #f1f5f9, #e0e7ff);
+      padding: 15px;
+      border-radius: 15px;
+      margin-top: 15px;
+    }
+
+    button {
+      margin-top: 20px;
+      width: 100%;
+      padding: 15px;
+      border-radius: 15px;
+      border: none;
+      font-size: 17px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    button:hover {
+      transform: translateY(-2px);
+    }
+
+    /* BOTÃO PRINCIPAL */
+    button:first-of-type {
+      background: linear-gradient(135deg, #22c55e, #14b8a6);
+      color: white;
+      box-shadow: 0 10px 25px rgba(34,197,94,0.4);
+    }
+
+    /* BOTÃO PDF */
+    button:last-of-type {
+      background: linear-gradient(135deg, #2563eb, #7c3aed);
+      color: white;
+      box-shadow: 0 10px 25px rgba(37,99,235,0.4);
+    }
+
+    #relatorio {
+      display: none;
+      margin-top: 30px;
+      padding: 25px;
+      border-radius: 20px;
+      background: #ffffff;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+    }
+
+    .titulo-relatorio {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .info {
+      margin-bottom: 10px;
+      line-height: 1.6;
+    }
+
+    .foto-preview {
+      max-width: 100%;
+      margin-top: 10px;
+      border-radius: 12px;
+    }
+
+    .assinatura {
+      margin-top: 40px;
+      text-align: center;
+    }
+
+    .linha {
+      margin: 30px auto 5px;
+      width: 250px;
+      border-bottom: 1px solid #000;
+    }
+
+    @media (max-width: 700px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>TechReport</h1>
+  <p>Relatórios fotográficos profissionais em poucos minutos</p>
+</header>
+
+<main>
+  <h2>Novo Relatório</h2>
+
+  <div class="grid">
+    <div>
+      <label>Nome da empresa</label>
+      <input type="text" id="empresa" placeholder="Ex: Maxi Serviços" />
+    </div>
+
+    <div>
+      <label>Cliente / Unidade</label>
+      <input type="text" id="cliente" placeholder="Ex: Hospital da Mulher" />
+    </div>
+  </div>
+
+  <div class="grid">
+    <div>
+      <label>Local do serviço</label>
+      <input type="text" id="local" placeholder="Ex: Sala de medicação" />
+    </div>
+
+    <div>
+      <label>Técnico responsável</label>
+      <input type="text" id="tecnico" placeholder="Nome do técnico" />
+    </div>
+  </div>
+
+  <div class="grid">
+    <div>
+      <label>Data</label>
+      <input type="date" id="data" />
+    </div>
+
+    <div>
+      <label>Tipo de serviço</label>
+      <select id="tipo">
+        <option value="">Selecione</option>
+        <option>Manutenção preventiva</option>
+        <option>Manutenção corretiva</option>
+        <option>Instalação</option>
+        <option>Vistoria técnica</option>
+        <option>Limpeza</option>
+        <option>Obra</option>
+      </select>
+    </div>
+  </div>
+
+  <label>Descrição do serviço</label>
+  <textarea id="descricao" placeholder="Descreva o que foi realizado..."></textarea>
+
+  <div class="foto-box">
+    <label>Foto ANTES</label>
+    <input type="file" id="fotoAntes" accept="image/*" />
+    <input type="text" id="obsAntes" placeholder="Observação da foto antes" />
+  </div>
+
+  <div class="foto-box">
+    <label>Foto DURANTE</label>
+    <input type="file" id="fotoDurante" accept="image/*" />
+    <input type="text" id="obsDurante" placeholder="Observação da foto durante" />
+  </div>
+
+  <div class="foto-box">
+    <label>Foto DEPOIS</label>
+    <input type="file" id="fotoDepois" accept="image/*" />
+    <input type="text" id="obsDepois" placeholder="Observação da foto depois" />
+  </div>
+
+  <button onclick="gerarRelatorio()">Gerar Relatório</button>
+  <button onclick="window.print()">Salvar / Imprimir em PDF</button>
+
+  <section id="relatorio">
+    <div class="titulo-relatorio">
+      <h2>Relatório Fotográfico Profissional</h2>
+      <p><strong>TechReport</strong></p>
+    </div>
+
+    <div id="conteudoRelatorio"></div>
+
+    <div class="assinatura">
+      <div class="linha"></div>
+      <p>Assinatura do responsável</p>
+    </div>
+  </section>
+</main>
+
+<script>
+function lerImagem(input) {
+  return new Promise((resolve) => {
+    if (!input.files || !input.files[0]) return resolve("");
+    const reader = new FileReader();
+    reader.onload = e => resolve(e.target.result);
+    reader.readAsDataURL(input.files[0]);
+  });
+}
+
+async function gerarRelatorio() {
+  const empresa = document.getElementById("empresa").value;
+  const cliente = document.getElementById("cliente").value;
+  const local = document.getElementById("local").value;
+  const tecnico = document.getElementById("tecnico").value;
+  const data = document.getElementById("data").value;
+  const tipo = document.getElementById("tipo").value;
+  const descricao = document.getElementById("descricao").value;
+
+  const obsAntes = document.getElementById("obsAntes").value;
+  const obsDurante = document.getElementById("obsDurante").value;
+  const obsDepois = document.getElementById("obsDepois").value;
+
+  const fotoAntes = await lerImagem(document.getElementById("fotoAntes"));
+  const fotoDurante = await lerImagem(document.getElementById("fotoDurante"));
+  const fotoDepois = await lerImagem(document.getElementById("fotoDepois"));
+
+  document.getElementById("conteudoRelatorio").innerHTML = `
+    <p><b>Empresa:</b> ${empresa}</p>
+    <p><b>Cliente:</b> ${cliente}</p>
+    <p><b>Local:</b> ${local}</p>
+    <p><b>Técnico:</b> ${tecnico}</p>
+    <p><b>Data:</b> ${data}</p>
+    <p><b>Tipo:</b> ${tipo}</p>
+    <p><b>Descrição:</b> ${descricao}</p>
+    <hr>
+    ${fotoAntes ? `<img src="${fotoAntes}" class="foto-preview">` : ""}
+    ${fotoDurante ? `<img src="${fotoDurante}" class="foto-preview">` : ""}
+    ${fotoDepois ? `<img src="${fotoDepois}" class="foto-preview">` : ""}
+  `;
+
+  document.getElementById("relatorio").style.display = "block";
+}
+</script>
+
+</body>
+</html>
