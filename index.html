@@ -248,18 +248,6 @@
   <button onclick="irParaPagamento()" class="btn-pagamento">
   💳 Pagar para liberar relatório
 </button>
-
-  const LINK_PAGAMENTO = "COLE_AQUI_SEU_LINK_DO_MERCADO_PAGO";
-
-function irParaPagamento() {
-  window.open(LINK_PAGAMENTO, "_blank");
-
-  // simulação simples de pagamento
-  setTimeout(() => {
-    alert("Pagamento confirmado! Relatório liberado.");
-    document.getElementById("btnGerarRelatorio").style.display = "block";
-  }, 2000);
-}
   
 <button id="btnGerarRelatorio" onclick="gerarRelatorio()" style="display:none;">
   📄 Gerar Relatório
