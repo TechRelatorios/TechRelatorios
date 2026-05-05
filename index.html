@@ -245,6 +245,14 @@
     <input type="text" id="obsDepois" placeholder="Observação da foto depois" />
   </div>
 
+  <button onclick="irParaPagamento()" class="btn-pagamento">
+  💳 Pagar para liberar relatório
+</button>
+
+<button id="btnGerarRelatorio" onclick="gerarRelatorio()" style="display:none;">
+  📄 Gerar Relatório
+</button>
+
   <button onclick="gerarRelatorio()">Gerar Relatório</button>
   <button onclick="window.print()">Salvar / Imprimir em PDF</button>
 
