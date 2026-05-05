@@ -41,6 +41,18 @@ function lerImagem(input) {
   });
 }
 
+const LINK_PAGAMENTO = "COLE_AQUI_SEU_LINK_DO_MERCADO_PAGO";
+
+function irParaPagamento() {
+  window.open(LINK_PAGAMENTO, "_blank");
+
+  // simulação simples de pagamento
+  setTimeout(() => {
+    alert("Pagamento confirmado! Relatório liberado.");
+    document.getElementById("btnGerarRelatorio").style.display = "block";
+  }, 2000);
+}
+
 async function gerarRelatorio() {
   const empresa = document.getElementById("empresa").value;
   const cliente = document.getElementById("cliente").value;
